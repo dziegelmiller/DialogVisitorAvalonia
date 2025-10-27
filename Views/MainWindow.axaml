@@ -1,0 +1,88 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:DialogVisitorApp.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        x:Class="DialogVisitorApp.Views.MainWindow"
+        xmlns:local="clr-namespace:DialogVisitorView"
+        Width="800" Height="550"
+        SizeToContent="WidthAndHeight"
+        Title="Dialog Visitor Demo" Name="mainWindow"  Loaded="MainWindow_Loaded">
+    <Window.Resources>
+        <!-- Create the view model classes and make them resources -->
+        <vm:ViewPersons x:Key="viewPersons" />
+        <vm:ViewVehicles x:Key="viewVehicles"/>
+    </Window.Resources>
+    <Grid Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <!-- construct the persons side of the main window -->
+        <DataGrid 
+                Name="PersonGrid" 
+                AutoGenerateColumns="false"
+                GridLinesVisibility="All"
+                SelectionMode="Single"
+
+                BorderThickness="1"
+
+                x:DataType="vm:ViewPersons"
+                DataContext="{Binding Source={StaticResource viewPersons}}" 
+                ItemsSource="{Binding PersonListView}" 
+                SelectionChanged="PersonGrid_SelectionChanged"
+                Grid.Column="0"
+                Grid.Row="0"
+                HorizontalAlignment="Left" Height="270" Margin="5,10,0,0" 
+                VerticalAlignment="Top" Width="400">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" Width="*"/>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" Width="*"/>
+                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="*"/>
+            </DataGrid.Columns>
+            </DataGrid>
+        <StackPanel HorizontalAlignment="Left" Height="68" Margin="10,7,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150"
+                    x:DataType="vm:ViewPersons" DataContext="{Binding Source={StaticResource viewPersons}}">
+            <!--Note that in MVVM toolkit, commands must end in "Command" to be recognized.-->
+            <Button Name="AddPersonBtn" Content="Add Person" Command="{Binding CreatePersonCommand}"/>
+            <Button Name="UpdatePersonBtn" Content="Update Person" Command="{Binding UpdatePersonCommand}"/>
+        </StackPanel>
+        
+        <!-- Construct the vehicles side -->
+        <DataGrid Name="VehicleGrid"
+                  
+                AutoGenerateColumns="True"
+                GridLinesVisibility="All"
+                BorderThickness="1"
+                SelectionMode="Single"
+                SelectionChanged="VehicleGrid_SelectionChanged"
+                  x:DataType="vm:ViewVehicles"
+                  DataContext="{Binding Source={StaticResource viewVehicles}}"
+                  ItemsSource="{Binding VehicleListView}"
+                  Grid.Column="1" HorizontalAlignment="Right" Margin="5,10,0,0" Width="300">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Make" Binding="{Binding Make}" Width="*"/>
+                <DataGridTextColumn Header="Model" Binding="{Binding Model}" Width="*"/>
+                <DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="*"/>
+                </DataGrid.Columns>
+        </DataGrid>
+
+
+        <StackPanel HorizontalAlignment="Left" Height="68" Margin="10,7,0,0" 
+                    Grid.Row="1" Grid.Column="1"
+                    x:DataType="vm:ViewVehicles"
+                    VerticalAlignment="Top" Width="150"
+                    DataContext="{Binding Source={StaticResource viewVehicles}}">
+            <!--Note that in MVVM toolkit, commands must end in "Command" to be recognized.-->
+            <Button Name="AddVehicleBtn" Content="Add Vehicle" Command="{Binding CreateVehicleCommand}"/>
+            <Button Name="UpdateVehicleBtn" Content="Update Vehicle" Command="{Binding UpdateVehicleCommand}"/>
+        </StackPanel>
+
+    </Grid>
+
+</Window>

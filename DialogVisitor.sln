@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36603.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DialogVisitorApp", "DialogVisitorApp.csproj", "{05CCBA06-6005-4695-AF2D-63DDF79611C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05CCBA06-6005-4695-AF2D-63DDF79611C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05CCBA06-6005-4695-AF2D-63DDF79611C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05CCBA06-6005-4695-AF2D-63DDF79611C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05CCBA06-6005-4695-AF2D-63DDF79611C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FDB7DB74-6C42-466C-B783-0484E0A9C5E0}
+	EndGlobalSection
+EndGlobal

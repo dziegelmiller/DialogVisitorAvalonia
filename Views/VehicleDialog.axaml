@@ -1,0 +1,30 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="300" Height="350"
+        x:Class="DialogVisitorApp.Views.VehicleDialog"
+        Title="VehicleDialog">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Button Name="OkBtn" Click="OkBtn_Click" Content="OK" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="75"/>
+        <Label Content="Make" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+        <Label Content="Model" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+        <Label Content="Year" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+        <TextBox Name="Make" Text="{Binding Path=Make}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Center" Width="120"/>
+        <TextBox Name="Model" Text="{Binding Path=Model}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Center" Width="120"/>
+        <TextBox Name="Year" Text="{Binding Path=Year}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Center" Width="120"/>
+
+    </Grid>
+
+</Window>
